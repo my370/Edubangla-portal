@@ -36,7 +36,7 @@ function ResetPassword(){
 
       await axios.post(
 
-        `http://localhost:5000/api/auth/reset-password/${token}`,
+        `https://edubangla-portal.onrender.com/api/auth/reset-password/${token}`,
 
         {
           password

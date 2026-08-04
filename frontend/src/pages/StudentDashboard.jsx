@@ -16,7 +16,7 @@ function StudentDashboard() {
         }
 
         const res = await axios.get(
-          `http://localhost:5000/api/applications/student/${user.email}`
+          `https://edubangla-portal.onrender.com/api/applications/student/${user.email}`
         );
 
         setApplications(Array.isArray(res.data) ? res.data : []);

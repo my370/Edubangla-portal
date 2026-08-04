@@ -12,7 +12,7 @@ function ForgotPassword(){
     try{
 
       await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
+        "https://edubangla-portal.onrender.com/api/auth/forgot-password",
         {
           email
         }

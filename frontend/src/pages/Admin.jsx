@@ -63,7 +63,7 @@ function Admin() {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:5000/api/institutions",
+        "https://edubangla-portal.onrender.com/api/institutions",
         institution,
         {
           headers: {
@@ -91,7 +91,7 @@ function Admin() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/applications",
+        "https://edubangla-portal.onrender.com/api/applications",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -154,7 +154,7 @@ function Admin() {
         const token = localStorage.getItem("token");
 
         const res = await axios.put(
-        `http://localhost:5000/api/institutions/${editId}`,
+        `https://edubangla-portal.onrender.com/api/institutions/${editId}`,
           institution,
           {
             headers: {
@@ -176,7 +176,7 @@ function Admin() {
       } else {
 
         const res = await axios.post(
-          "http://localhost:5000/api/institutions",
+          "https://edubangla-portal.onrender.com/api/institutions",
           institution
         );
 
@@ -206,7 +206,7 @@ function Admin() {
     try {
 
       const res = await axios.put(
-        `http://localhost:5000/api/applications/${id}`,
+        `https://edubangla-portal.onrender.com/api/applications/${id}`,
         {
           status,
         }
@@ -239,7 +239,7 @@ function Admin() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:5000/api/institutions/${id}`,
+        `https://edubangla-portal.onrender.com/api/institutions/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -319,7 +319,7 @@ function Admin() {
     try {
 
       await axios.delete(
-        `http://localhost:5000/api/institutions/${id}`
+        `https://edubangla-portal.onrender.com/api/institutions/${id}`
       );
 
       setInstitutions(

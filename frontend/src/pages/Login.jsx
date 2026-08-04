@@ -33,7 +33,7 @@ function Login() {
     console.log("Sending:", loginData);
    
     const res = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      "https://edubangla-portal.onrender.com/api/auth/login",
       loginData
     );
 

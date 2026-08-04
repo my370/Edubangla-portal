@@ -81,7 +81,7 @@ function ApplicationForm() {
 
 
       await axios.post(
-        "http://localhost:5000/api/applications",
+        "https://edubangla-portal.onrender.com/api/applications",
         formData
       );
 
