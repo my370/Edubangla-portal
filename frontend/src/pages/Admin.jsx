@@ -62,7 +62,7 @@ function Admin() {
 
       const token = localStorage.getItem("token");
 
-      const res = await axios.post(
+      const res = await axios.get(
         "https://edubangla-portal.onrender.com/api/institutions",
         institution,
         {
@@ -175,7 +175,7 @@ function Admin() {
 
       } else {
 
-        const res = await axios.post(
+        const res = await axios.get(
           "https://edubangla-portal.onrender.com/api/institutions",
           institution
         );
