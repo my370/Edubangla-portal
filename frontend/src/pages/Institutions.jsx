@@ -18,7 +18,7 @@ useState([]);
     try {
 
       const res = await axios.get(
-        "http://192.168.10.10:5000/api/institutions"
+        "/api/institutions"
       );
 
       setInstitutionsData(res.data);

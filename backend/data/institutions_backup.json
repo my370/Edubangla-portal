@@ -1,0 +1,72 @@
+[
+  {
+    "name": "University of Chittagong",
+    "shortName": "CU",
+    "category": "University",
+    "type": "Public",
+    "division": "Chattogram",
+    "district": "Chattogram",
+    "website": "https://cu.ac.bd",
+    "description": "Public university in Bangladesh"
+  },
+  {
+    "name": "Chittagong University of Engineering and Technology",
+    "shortName": "CUET",
+    "category": "University",
+    "type": "Public",
+    "division": "Chattogram",
+    "district": "Chattogram",
+    "website": "https://cuet.ac.bd",
+    "description": "Engineering university in Bangladesh"
+  },
+  {
+    "name": "University of Dhaka",
+    "shortName": "DU",
+    "category": "University",
+    "type": "Public",
+    "division": "Dhaka",
+    "district": "Dhaka",
+    "website": "https://du.ac.bd",
+    "description": "Public university in Bangladesh"
+  },
+  {
+    "name": "Bangladesh University of Engineering and Technology",
+    "shortName": "BUET",
+    "category": "University",
+    "type": "Public",
+    "division": "Dhaka",
+    "district": "Dhaka",
+    "website": "https://buet.ac.bd",
+    "description": "Engineering university in Bangladesh"
+  },
+  {
+    "name": "Rajshahi University",
+    "shortName": "RU",
+    "category": "University",
+    "type": "Public",
+    "division": "Rajshahi",
+    "district": "Rajshahi",
+    "website": "https://ru.ac.bd",
+    "description": "Public university in Bangladesh"
+  },
+  {
+    "name": "Jahangirnagar University",
+    "shortName": "JU",
+    "category": "University",
+    "type": "Public",
+    "division": "Dhaka",
+    "district": "Savar",
+    "website": "https://juniv.edu",
+    "description": "Public university in Bangladesh"
+  },
+  {
+    "name": "Khulna University",
+    "shortName": "KU",
+    "category": "University",
+    "type": "Public",
+    "division": "Khulna",
+    "district": "Khulna",
+    "website": "https://ku.ac.bd",
+    "description": "Public university in Bangladesh"
+  }
+]
