@@ -33,7 +33,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "/api/auth/login",
+        "https://edubangla-portal.onrender.com/api/auth/login",
         loginData,
         {
           headers: {
