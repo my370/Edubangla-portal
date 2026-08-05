@@ -61,7 +61,7 @@ const chartData = [
   const removeSaved = (id) => {
     const updated =
       savedInstitutions.filter(
-        (item) => item.id !== id
+        (item) => (item._id || item.id) !== id
       );
 
     localStorage.setItem(
@@ -212,7 +212,7 @@ const chartData = [
             {savedInstitutions.map((institution) => (
 
               <div
-                key={institution.id}
+                key={institution._id || institution.id}
                 className="border rounded-lg p-4 bg-white 
               dark:bg-gray-700 transition-colors"
               >
@@ -231,7 +231,7 @@ const chartData = [
                 <div className="flex flex-col sm:flex-row gap-3 mt-4">
 
                   <Link
-                    to={`/institutions/${institution.id}`}
+                    to={`/institutions/${institution._id || institution.id}`}
                     className="bg-blue-600 text-white px-4 py-2 rounded"
                   >
                     Details
@@ -239,7 +239,7 @@ const chartData = [
 
                   <button
                     onClick={() =>
-                      removeSaved(institution.id)
+                      removeSaved(institution._id || institution.id)
                     }
                     className="bg-red-600 text-white px-4 py-2 rounded"
                   >

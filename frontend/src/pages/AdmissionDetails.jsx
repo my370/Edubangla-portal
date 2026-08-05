@@ -8,7 +8,7 @@ function AdmissionDetails() {
   const { id } = useParams();
 
   const admission = admissions.find(
-    (item) => item.id === Number(id)
+    (item) => (item._id || item.id) === id
   );
 
   if (!admission) {

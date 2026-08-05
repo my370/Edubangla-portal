@@ -13,7 +13,7 @@ function SavedInstitutions() {
   const handleRemove = (id) => {
 
     const updated = saved.filter(
-      (item) => item.id !== id
+      (item) => (item._id || item.id) !== id
     );
 
     setSaved(updated);
@@ -53,14 +53,14 @@ function SavedInstitutions() {
           {saved.map((item) => (
 
             <div
-              key={item.id}
+              key={item._id || item.id}
               className="bg-white dark:bg-gray-800 border 
               border-gray-200 dark:border-gray-700 shadow 
               rounded-xl p-5 transition-colors"
             >
 
               <Link
-                to={`/institutions/${item.id}`}
+                to={`/institutions/${item._id || item.id}`}
                 className="text-xl font-bold text-blue-600 dark:text-blue-400"
               >
                 {item.name}
@@ -78,7 +78,7 @@ function SavedInstitutions() {
 
 
               <button
-                onClick={() => handleRemove(item.id)}
+                onClick={() => handleRemove(item._id || item.id)}
                 className="mt-4 bg-red-600 hover:bg-red-700 
                 text-white px-4 py-2 rounded transition-colors"
               >
