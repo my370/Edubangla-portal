@@ -312,6 +312,9 @@ function Admin() {
     });
 
     setEditId(item._id);
+    console.log("EDIT ID SET:", item._id);
+    console.log("EDIT ID SET:", item._id);
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
   };
 
@@ -323,8 +326,8 @@ function Admin() {
         `https://edubangla-portal.onrender.com/api/institutions/${id}`
       );
 
-      setInstitutions(
-        institutions.filter(
+      setInstitutions((prev) =>
+        prev.filter(
           (item) => item._id !== id
         )
       );

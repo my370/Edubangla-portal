@@ -24,6 +24,35 @@ router.get("/", async (req, res) => {
 });
 
 
+
+
+// Get single institution by ID
+router.get("/:id", async (req, res) => {
+
+  try {
+
+    const institution = await Institution.findById(
+      req.params.id
+    );
+
+    if (!institution) {
+      return res.status(404).json({
+        message: "Institution not found"
+      });
+    }
+
+    res.json(institution);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
+});
+
 // Add institution
 router.post("/", async (req, res) => {
 
