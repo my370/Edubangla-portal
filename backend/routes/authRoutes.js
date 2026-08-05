@@ -82,6 +82,9 @@ router.post("/login", async (req,res)=>{
 
 
     const {email,password}=req.body;
+    console.log("LOGIN BODY:", req.body);
+    console.log("EMAIL:", email);
+    console.log("PASSWORD LENGTH:", password?.length);
 
 
     const user =
