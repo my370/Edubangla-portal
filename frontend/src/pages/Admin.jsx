@@ -328,7 +328,7 @@ function Admin() {
 
       setInstitutions((prev) =>
         prev.filter(
-          (item) => item._id !== id
+          (item) => String(item._id) !== String(id)
         )
       );
 

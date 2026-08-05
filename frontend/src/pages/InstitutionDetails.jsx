@@ -18,7 +18,7 @@ function InstitutionDetails() {
         );
 
         const found = res.data.find(
-          (item) => item._id === id
+          (item) => String(item._id) === String(id)
         );
 
         setInstitution(found || null);
