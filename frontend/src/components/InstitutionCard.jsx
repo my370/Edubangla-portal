@@ -42,7 +42,7 @@ function InstitutionCard({ institution }) {
 
       updated =
         data.filter(
-          (item)=> item.id !== institution.id
+          (item)=> (item._id || item.id) !== (institution._id || institution.id)
         );
 
       setSaved(false);

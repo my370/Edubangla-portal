@@ -1,17 +1,44 @@
 import { Link, useParams } from "react-router-dom";
-import { useContext } from "react";
-import institutionsData from "../data/institutions";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import { LanguageContext } from "../context/LanguageContext";
 
 function InstitutionDetails() {
   const { id } = useParams();
+  const { language } = useContext(LanguageContext);
 
-const { language } = useContext(LanguageContext);
+  const [institution, setInstitution] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-const institution = institutionsData.find(
-  (item) => item.id === Number(id)
+  useEffect(() => {
+    const fetchInstitution = async () => {
+      try {
+        const res = await axios.get(
+          "https://edubangla-portal.onrender.com/api/institutions"
+        );
 
-);
+        const found = res.data.find(
+          (item) => item._id === id
+        );
+
+        setInstitution(found || null);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchInstitution();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <section className="py-10 text-center">
+        <h1>Loading...</h1>
+      </section>
+    );
+  }
 
   if (!institution) {
     return (
@@ -26,11 +53,8 @@ const institution = institutionsData.find(
   }
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-10 
-    text-gray-900 dark:text-gray-100 
-    transition-colors">
-      <div className="bg-white dark:bg-gray-800 shadow 
-      rounded-xl p-8 transition-colors">
+    <section className="max-w-5xl mx-auto px-6 py-10 text-gray-900 dark:text-gray-100">
+      <div className="bg-white dark:bg-gray-800 shadow rounded-xl p-8">
 
         {institution.logo && (
           <img
@@ -44,70 +68,34 @@ const institution = institutionsData.find(
           {institution.name}
         </h1>
 
-        <div className="space-y-4 text-lg text-gray-700
-        dark:text-gray-300">
+        <div className="space-y-4">
+
+          <p><strong>Category:</strong> {institution.category}</p>
+
+          <p><strong>Type:</strong> {institution.type}</p>
+
+          <p><strong>Division:</strong> {institution.division}</p>
+
+          <p><strong>District:</strong> {institution.district}</p>
+
+          <p><strong>Established:</strong> {institution.established || "N/A"}</p>
+
+          <p><strong>Description:</strong> {institution.description || "N/A"}</p>
 
           <p>
-            <strong>
-              {language === "en" ? "Category:" : "ধরন:"}
-            </strong>{" "}
-            {institution.category}
-          </p>
-
-          <p>
-            <strong>
-              {language === "en" ? "Division:" : "বিভাগ:"}
-            </strong>{" "}
-            {institution.division}
-          </p>
-
-          <p>
-            <strong>
-              {language === "en" ? "District:" : "জেলা:"}
-            </strong>{" "}
-            {institution.district || "N/A"}
-          </p>
-
-          <p>
-            <strong>
-              {language === "en" ? "Address:" : "ঠিকানা:"}
-            </strong>{" "}
-            {institution.address || "N/A"}
-          </p>
-
-          <p>
-            <strong>
-              {language === "en" ? "Website:" : "ওয়েবসাইট:"}
-            </strong>{" "}
+            <strong>Website:</strong>{" "}
             {institution.website ? (
               <a
                 href={institution.website}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-600 dark:text-blue-400
-                underline"
+                className="text-blue-600 underline"
               >
-                {language === "en"
-                  ? "Visit Website"
-                  : "ওয়েবসাইট দেখুন"}
+                Visit Website
               </a>
             ) : (
               "N/A"
             )}
-          </p>
-
-          <p>
-            <strong>
-              {language === "en" ? "Email:" : "ইমেইল:"}
-            </strong>{" "}
-            {institution.email || "N/A"}
-          </p>
-
-          <p>
-            <strong>
-              {language === "en" ? "Phone:" : "ফোন:"}
-            </strong>{" "}
-            {institution.phone || "N/A"}
           </p>
 
         </div>
@@ -115,11 +103,9 @@ const institution = institutionsData.find(
         <div className="mt-8">
           <Link
             to="/institutions"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg"
+            className="bg-blue-600 text-white px-6 py-3 rounded"
           >
-            {language === "en"
-              ? "← Back to Institutions"
-              : "← প্রতিষ্ঠানে ফিরে যান"}
+            ← Back
           </Link>
         </div>
 
@@ -129,4 +115,3 @@ const institution = institutionsData.find(
 }
 
 export default InstitutionDetails;
-
