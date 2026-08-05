@@ -239,7 +239,7 @@ function Admin() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `https://edubangla-portal.onrender.com/api/institutions/${id}`,
+        `https://edubangla-portal.onrender.com/api/institutions/${String(id)}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -296,25 +296,28 @@ function Admin() {
   
 
   const editInstitution = (item) => {
-  console.log("EDIT CLICKED:", item);
+
+    console.log("EDIT CLICKED:", item);
 
     setInstitution({
-      name: item.name,
-      shortName: item.shortName,
-      category: item.category,
-      type: item.type,
-      division: item.division,
-      district: item.district,
-      established: item.established,
-      website: item.website,
-      description: item.description,
+      name: item.name || "",
+      shortName: item.shortName || "",
+      category: item.category || "",
+      type: item.type || "",
+      division: item.division || "",
+      district: item.district || "",
+      established: item.established || "",
+      website: item.website || "",
+      description: item.description || "",
       logo: item.logo || "",
     });
 
-    setEditId(item._id);
-    console.log("EDIT ID SET:", item._id);
-    console.log("EDIT ID SET:", item._id);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setEditId(String(item._id));
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
   };
 
@@ -323,7 +326,7 @@ function Admin() {
     try {
 
       await axios.delete(
-        `https://edubangla-portal.onrender.com/api/institutions/${id}`
+        `https://edubangla-portal.onrender.com/api/institutions/${String(id)}`
       );
 
       setInstitutions((prev) =>
