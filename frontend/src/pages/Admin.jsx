@@ -296,6 +296,7 @@ function Admin() {
   
 
   const editInstitution = (item) => {
+  console.log("EDIT CLICKED:", item);
 
     setInstitution({
       name: item.name,
